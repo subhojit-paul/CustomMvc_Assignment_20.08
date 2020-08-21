@@ -1,0 +1,34 @@
+﻿@model IEnumerable<CustMovMVCAppWithAuthentication.Models.Movie>
+@{
+    ViewBag.Title = "Index1";
+}
+
+<h2>Index1</h2>
+<h2>Movies</h2>
+<table class="table table-bordered table-condensed table-striped">
+    <thead>
+        <tr>
+            <td>Movie Name</td>
+            <td>Movie Genre</td>
+
+
+        </tr>
+
+    </thead>
+    <tbody>
+        <tr>
+            @foreach (var movie in Model)
+            {
+                <tr>
+
+                     <td>@Html.ActionLink(movie.Name, "Details1", "Movies", new {id=movie.Id}, null)</td>
+                     <td>@movie.Genre</td>
+
+
+
+                </tr>
+        }
+
+        </tbody>
+
+    </table>

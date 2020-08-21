@@ -1,0 +1,28 @@
+﻿@model IEnumerable<CustMovMVCAppWithAuthentication.Models.Customer>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+
+<h2>Customer List</h2>
+<table class="table table-bordered table-striped ">
+       <thead>
+           <tr>
+               <th>CustomerName</th>
+                <th>Discount Rate</th>
+               <th>Date of Birth </th>
+           </tr>
+       </thead>
+    <tbody>
+        @foreach(var customer in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(customer.Name,"Details","Customer",new{id= customer.Id},null)</td>
+             
+               <td>@customer.MembershipType.DiscountRate%</td>
+                <td>@customer.DoB.ToShortDateString()</td>
+
+            </tr>
+        }
+    </tbody>
+</table>
